@@ -15,7 +15,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.BasicSal)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayBand)
+            </th>
+            <th>
+                HRA
+            </th>
+            <th>
+                net sal
+            </th>
+            <th>
+                in hand sal
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +34,18 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.BasicSal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayBand)
+            </td>
+            <td>
+                @(@item.BasicSal*.10)
+            </td>
+            <td>
+                @((@item.BasicSal* .10)+(@item.BasicSal * .05)+ (@item.BasicSal * .05)+ (@item.BasicSal))
+            </td>
+            <td>
+                @((@item.BasicSal * .10)+(@item.BasicSal * .05)+ (@item.BasicSal * .05)+ (@item.BasicSal) - (@item.BasicSal * .10))
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PayBand">Edit</a> |
